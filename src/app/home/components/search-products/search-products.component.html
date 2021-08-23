@@ -1,0 +1,51 @@
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="/home" text=""></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end" routerLink="/cart">
+            <ion-icon slot="end" name="cart-outline"></ion-icon>
+            <ion-badge mode="md" *ngIf="cantInCart">
+              {{ cantInCart }}
+            </ion-badge>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <ion-searchbar
+          placeholder="Buscar..."
+          showCancelButton="never"
+          [(ngModel)]="searchText"
+        ></ion-searchbar>
+        <ion-item>
+          <ion-label>Busqueda por categorias</ion-label>
+          <ion-select
+            value="all"
+            [(ngModel)]="selectCat"
+            cancelText="Cancelar"
+            class="custom-options"
+          >
+            <ion-select-option value="all"
+              >Todos los productos</ion-select-option
+            >
+            <ng-container *ngFor="let cat of categories">
+              <ion-select-option value="{{ cat }}">{{ cat }}</ion-select-option>
+            </ng-container>
+          </ion-select>
+        </ion-item>
+
+        <div class="grid-wrapper">
+          <ng-container
+            *ngFor="
+              let product of products | filterCategories: searchText:selectCat
+            "
+          >
+            <app-item [product]="product"></app-item>
+          </ng-container>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

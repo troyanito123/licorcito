@@ -1,0 +1,109 @@
+<form [formGroup]="dealerForm" (ngSubmit)="save()">
+  <app-dealer-image formControlName="image"></app-dealer-image>
+  <span class="error_message" *ngIf="invalidField('image')">{{
+    invalidImageMsg
+  }}</span>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Email(*)</ion-label>
+    <ion-input
+      type="text"
+      placeholder="Email"
+      formControlName="email"
+    ></ion-input>
+    <span class="error_message" *ngIf="invalidField('email')">{{
+      invalidNameMsg
+    }}</span>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Nombre(*)</ion-label>
+    <ion-input
+      type="text"
+      placeholder="Nombre"
+      formControlName="name"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position="floating">Empresa(*)</ion-label>
+    <ion-input
+      type="text"
+      placeholder="Empresa"
+      formControlName="company"
+    ></ion-input>
+  </ion-item>
+
+  <!-- Agregar telefono -->
+  <ion-item>
+    <ion-label color="primary" position="floating">Agregar Telefono</ion-label>
+    <ion-grid fixed>
+      <ion-row class="ion-justify-content-between">
+        <ion-col size="8">
+          <ion-input
+            type="tel"
+            placeholder="71231231"
+            [formControl]="newPhone"
+          ></ion-input>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button (click)="addPhone()" expand="block">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Agregar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <!-- Lista de telefonos -->
+  <ion-item>
+    <ion-label position="floating">Telefonos</ion-label>
+    <div formArrayName="phones">
+      <ng-container *ngFor="let phone of phones.controls; let i = index">
+        <ion-grid>
+          <ion-row class="ion-justify-content-between">
+            <ion-col size="8">
+              <ion-item>
+                <ion-label color="primary" position="floating">
+                  Telefono {{ i + 1 }}
+                </ion-label>
+                <ion-input
+                  type="tel"
+                  placeholder="Telefono"
+                  [formControlName]="i"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="4">
+              <div class="button_remove">
+                <ion-button (click)="removePhone(i)">
+                  <ion-icon slot="start" name="remove"></ion-icon>
+                  Eliminar
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+    </div>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button *ngIf="!isLoading" type="submit" expand="block">
+          Guardar
+        </ion-button>
+        <ion-button *ngIf="isLoading" type="button" expand="block" disabled>
+          Guardando ...
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button fill="outline" (click)="cancel()" expand="block">
+          Cancelar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>

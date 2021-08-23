@@ -1,0 +1,58 @@
+.page_contain {
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ion-icon {
+      font-size: 2rem;
+    }
+    ion-text {
+      h1 {
+        font-size: 42px;
+      }
+      p {
+        font-size: 14px;
+        color: #8c949c;
+      }
+    }
+  }
+
+  .form_container {
+    margin-bottom: 6rem;
+    .last_item {
+      margin-bottom: 2rem;
+    }
+    .buttons_container {
+      display: flex;
+      flex-direction: column;
+      ion-button {
+        width: 100%;
+      }
+
+      img {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+      }
+    }
+
+    .text_login_register {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 12px;
+      color: #8c949c;
+      a {
+        color: #2c344b;
+        font-weight: 400;
+        margin-left: 5px;
+        font-weight: bold;
+      }
+    }
+  }
+}

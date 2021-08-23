@@ -1,0 +1,28 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="/home" text=""></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end" routerLink="/cart">
+            <ion-icon slot="end" name="cart-outline"></ion-icon>
+            <ion-badge mode="md" *ngIf="cant">
+              {{ cant }}
+            </ion-badge>
+          </ion-buttons>
+        </ion-toolbar>
+        <h2 class="subtitle">Categoria: {{ category }}</h2>
+        <ion-searchbar
+          placeholder="Buscar..."
+          showCancelButton="never"
+          [(ngModel)]="searchText"
+        ></ion-searchbar>
+        <app-item-list
+          [products]="products | filterCategories: searchText"
+        ></app-item-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button menu="first"></ion-menu-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <h2 class="subtitle">Historial de ordenes</h2>
+        <app-order-item-list [orders]="orders"></app-order-item-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

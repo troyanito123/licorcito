@@ -1,0 +1,19 @@
+<div class="notification_container">
+  <ion-item>
+    <ion-label position="floating">Notificaciones</ion-label>
+    <ion-textarea [formControl]="notificationControl"></ion-textarea>
+  </ion-item>
+  <ion-button
+    (click)="sendNotificationToUser()"
+    *ngIf="!isLoading"
+    shape="round"
+    expand="block"
+  >
+    <ion-icon slot="start" name="send-outline"></ion-icon>
+    Enviar
+  </ion-button>
+  <ion-button *ngIf="isLoading" disabled shape="round" expand="block">
+    <ion-spinner name="bubbles"></ion-spinner>
+    Enviando...
+  </ion-button>
+</div>

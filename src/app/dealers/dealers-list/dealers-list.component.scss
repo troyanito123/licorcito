@@ -1,0 +1,26 @@
+ion-searchbar {
+  --background: #f3f3fb;
+  --border-radius: 2rem;
+  --box-shadow: none;
+  --icon-color: #2c344b;
+  --placeholder-color: #8c949c;
+  --color: #8c8c9c;
+}
+
+p:nth-child(1) {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c344b;
+}
+
+p:nth-child(2) {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8c8c9c;
+}
+
+p:nth-child(2) {
+  font-size: 1rem;
+
+  color: #bcbcc4;
+}

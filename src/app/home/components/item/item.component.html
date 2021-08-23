@@ -1,0 +1,20 @@
+<div class="card item_background">
+  <div class="img_container" *ngIf="imgLoading">
+    <ion-spinner name="circular"></ion-spinner>
+  </div>
+  <ion-img
+    [src]="product.images[0].url"
+    (ionImgDidLoad)="imgLoading = false"
+    (click)="toProduct(product.id)"
+  ></ion-img>
+
+  <div class="card-content" (click)="toProduct(product.id)">
+    <h3 class="item_title title">{{ product.name }}</h3>
+    <h2 class="item_price subtitle">{{ product.price | number: "1.2" }} Bs.</h2>
+  </div>
+  <ion-buttons slot="start">
+    <ion-button (click)="addProductToCart()">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</div>

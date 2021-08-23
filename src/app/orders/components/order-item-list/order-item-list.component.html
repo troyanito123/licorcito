@@ -1,0 +1,18 @@
+<ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let order of orders" size="12" size-md="6">
+        <ion-item detail routerLink="../{{ order.id }}">
+          <ion-label class="ion-text-wrap">
+            <p>{{ order.user.name }}</p>
+            <p>{{ order.total | number: "1.2" }} Bs.</p>
+            <p>{{ order.createdAt | date: "medium" }}</p>
+            <ion-badge [color]="getColor(order.state)" mode="md">
+              {{ getName(order.state) }}
+            </ion-badge>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-list>

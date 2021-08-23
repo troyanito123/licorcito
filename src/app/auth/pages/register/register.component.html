@@ -1,0 +1,71 @@
+<ion-content class="ion-padding">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <div class="page_contain">
+          <div class="header">
+            <ion-text>
+              <h1>Crea tu cuenta.</h1>
+              <p>Comience registrando sus dato para <br />su cuenta.</p>
+            </ion-text>
+            <ion-icon
+              slot="icon-only"
+              name="alert-circle-outline"
+              (click)="presentPopover($event)"
+            ></ion-icon>
+          </div>
+
+          <div class="form_container">
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+              <ion-item>
+                <ion-icon slot="start" name="person-outline"></ion-icon>
+                <ion-label position="floating">Nombre (*)</ion-label>
+                <ion-input formControlName="name"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon slot="start" name="mail-outline"></ion-icon>
+                <ion-label position="floating">Correo (*)</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+                <ion-label position="floating">Contraseña (*)</ion-label>
+                <ion-input
+                  type="password"
+                  formControlName="password"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item class="last_item">
+                <ion-icon slot="start" name="call-outline"></ion-icon>
+                <ion-label position="floating">Telefono (*)</ion-label>
+                <ion-input type="tel" formControlName="phone"></ion-input>
+              </ion-item>
+
+              <ion-button type="submit" expand="block" *ngIf="!isLoading">
+                Registrame
+              </ion-button>
+              <ion-button
+                type="button"
+                expand="block"
+                *ngIf="isLoading"
+                disabled
+              >
+                Registrando...
+              </ion-button>
+            </form>
+
+            <div class="buttons_container">
+              <p class="text_login_register">
+                ¿Ya tienes Cuenta?
+                <a routerLink="../login">Ingresa ahora</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

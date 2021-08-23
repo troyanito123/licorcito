@@ -1,0 +1,39 @@
+ion-card {
+  width: 300px;
+  height: 400px;
+  border-radius: 1rem;
+  .img_container {
+    min-height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  ion-card {
+    width: 340px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  ion-card {
+    width: 420px;
+    height: 460px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  ion-card {
+    width: 380px;
+    height: 420px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  ion-card {
+    width: 480px;
+    height: 520px;
+  }
+}

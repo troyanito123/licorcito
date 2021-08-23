@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Licorcito</string>
+    <string name="title_activity_main">Licorcito</string>
+    <string name="package_name">umss.ptaang.licorcito</string>
+    <string name="custom_url_scheme">umss.ptaang.licorcito</string>
+</resources>

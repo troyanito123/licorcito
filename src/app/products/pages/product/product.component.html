@@ -1,0 +1,41 @@
+<ion-content *ngIf="product">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="/products" text=""></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="presentActionSheet()" color="light">
+              <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <div class="product_container">
+          <div class="product_images">
+            <ion-slides mode="md" pager="md" scrollbar="md">
+              <ion-slide *ngFor="let img of product.images">
+                <div class="image_container">
+                  <div class="box_loading" *ngIf="imgLoading">
+                    <ion-spinner name="circular"></ion-spinner>
+                  </div>
+                  <ion-img
+                    [src]="img.url"
+                    (ionImgDidLoad)="imgLoading = false"
+                  ></ion-img>
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </div>
+
+          <div class="text_container">
+            <p>{{ product.name }}</p>
+            <p>{{ product.description }}</p>
+            <p>{{ product.price | number: "1.2" }} Bs.</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

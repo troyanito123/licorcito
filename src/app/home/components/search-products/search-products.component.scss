@@ -1,0 +1,20 @@
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 10rem);
+  justify-content: center;
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+
+ion-searchbar {
+  --background: #f3f3fb;
+  --border-radius: 2rem;
+  --box-shadow: none;
+  --icon-color: #2c344b;
+  --placeholder-color: #8c949c;
+  --color: #8c8c9c;
+}
+
+ion-label {
+  --color: #8c8c9c;
+}

@@ -1,0 +1,41 @@
+<div class="messages_container">
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="ios">
+      <ion-back-button
+        defaultHref="/orders/{{ orderId }}"
+        text=""
+        *ngIf="orderId"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="chat_title">
+    <p>¿Tienes alguna duda?</p>
+    <p>Este chat esta para resolver tus inquietudes.</p>
+  </div>
+  <div class="loading_box" *ngIf="messages.length == 0">
+    <ion-spinner name="bubbles"></ion-spinner>
+  </div>
+  <div class="body_messages" #messagesBox *ngIf="messages.length > 0">
+    <div
+      class="single_message"
+      [class.own]="message.userId === user.uid"
+      *ngFor="let message of messages"
+    >
+      <p>{{ message.role }} - {{ message.name }} dice:</p>
+      <p>{{ message.body }}</p>
+      <p>{{ message.date | date: "mediumTime" }}</p>
+    </div>
+  </div>
+  <div class="input_message">
+    <ion-input
+      type="text"
+      placeholder="Escribe tu mensaje"
+      [formControl]="newMessage"
+      (keyup.enter)="sendMessage()"
+      #inputId
+    ></ion-input>
+    <ion-button shape="round" (click)="sendMessage()" [disabled]="isLoading">
+      <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+    </ion-button>
+  </div>
+</div>

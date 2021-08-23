@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main" color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil de usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" color="secondary" fill="solid">
+        Cerrar sesion
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="user">
+    <ion-text color="primary">
+      <h1>Nombre:</h1>
+    </ion-text>
+
+    <ion-text color="secondary">
+      <h2>{{ user.name }}</h2>
+    </ion-text>
+
+    <ion-text color="primary">
+      <h1>Email:</h1>
+    </ion-text>
+
+    <ion-text color="secondary">
+      <h2>{{ user.email }}</h2>
+    </ion-text>
+
+    <ion-text color="primary">
+      <h1>Rol:</h1>
+    </ion-text>
+
+    <ion-text color="secondary">
+      <h2>{{ user.role }}</h2>
+    </ion-text>
+  </div>
+</ion-content>

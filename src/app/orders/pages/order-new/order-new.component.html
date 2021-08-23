@@ -1,0 +1,23 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="/cart" text=""></ion-back-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <div class="header">
+          <h2 class="subtitle">Completa tu pedido</h2>
+          <ion-icon
+            slot="icon-only"
+            name="information-circle-outline"
+            (click)="presentPopover($event)"
+          ></ion-icon>
+        </div>
+        <app-order-map></app-order-map>
+        <app-order-form></app-order-form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

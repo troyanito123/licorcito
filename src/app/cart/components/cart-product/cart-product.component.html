@@ -1,0 +1,24 @@
+<div class="cart-item">
+  <div class="image">
+    <ion-img [src]="product.images[0].url"></ion-img>
+  </div>
+
+  <div class="description">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.subtotal | number: "1.2" }} Bs.</p>
+  </div>
+
+  <div class="actions">
+    <ion-buttons>
+      <ion-button (click)="incrementCant(product)">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="counter">{{ product.cant }}</div>
+    <ion-buttons>
+      <ion-button (click)="decrementCant(product)">
+        <ion-icon slot="icon-only" name="remove"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+</div>

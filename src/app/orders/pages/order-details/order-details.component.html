@@ -1,0 +1,45 @@
+<ion-content *ngIf="order">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button
+              defaultHref="/orders/{{ orderId }}"
+              text=""
+            ></ion-back-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <h2 class="subtitle">Detalles de tu pedido</h2>
+        <div class="details_container">
+          <div class="header_details">
+            <p>Imagen</p>
+            <p>Detalle</p>
+            <p>Subtotal</p>
+          </div>
+          <div *ngFor="let product of order.products" class="detail_container">
+            <div class="image">
+              <ion-avatar>
+                <img [src]="product.images[0].url" />
+              </ion-avatar>
+            </div>
+
+            <div class="detail">
+              <p>{{ product.name }}</p>
+              <p>{{ product.price | currency: "Bs. " }}</p>
+              <p>Candidad {{ product.cant }}</p>
+            </div>
+
+            <div class="subtotal">
+              <p>{{ product.subtotal | currency: "Bs. " }}</p>
+            </div>
+          </div>
+          <div class="total">
+            <p>Total</p>
+            <p>{{ order.total | currency: "Bs. " }}</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

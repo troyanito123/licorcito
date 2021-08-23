@@ -1,0 +1,41 @@
+.map_container {
+  width: 100%;
+  height: 15rem;
+  border-radius: 1rem;
+  position: relative;
+
+  ion-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 10px;
+    z-index: 401;
+    --border-radius: 50%;
+    --padding-bottom: 4px;
+    --padding-top: 4px;
+    --padding-start: 4px;
+    --padding-end: 4px;
+    --background: gray;
+    height: 3rem;
+  }
+}
+
+.map_label {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  color: gray;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 720px) {
+  .map_container {
+    height: 20rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .map_container {
+    height: 25rem;
+  }
+}

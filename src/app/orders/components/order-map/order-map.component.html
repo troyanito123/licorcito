@@ -1,0 +1,8 @@
+<div class="map_container" id="orderMap">
+  <ion-button (click)="flyToCenter()">
+    <ion-icon slot="icon-only" name="location-outline"></ion-icon>
+  </ion-button>
+</div>
+<p *ngIf="currentLocation.lat" class="map_label">
+  lng: {{ currentLocation.lng }}, lat: {{ currentLocation.lat }}
+</p>

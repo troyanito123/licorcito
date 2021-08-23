@@ -1,0 +1,21 @@
+<ion-content *ngIf="product">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar *ngIf="product">
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="products" text=""></ion-back-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <h1 class="subtitle">{{ product.name | uppercase }}</h1>
+        <app-product-images
+          [images]="product.images"
+          [productId]="product.id"
+        ></app-product-images>
+        <app-product-new-images></app-product-new-images>
+        <app-product-form [product]="product"></app-product-form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-card (click)="toPromotion()">
+  <div class="img_container">
+    <ion-spinner name="crescent" *ngIf="imgLoading"></ion-spinner>
+    <ion-img
+      [src]="promotion.image"
+      (ionImgDidLoad)="imgLoading = false"
+    ></ion-img>
+  </div>
+  <ion-card-header>
+    <ion-card-title class="item_title">{{ promotion.name }}</ion-card-title>
+    <ion-card-subtitle class="item_price">
+      {{ promotion.price | number: "1.2" }} Bs.
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content class="item_description">
+    {{ promotion.description }}
+  </ion-card-content>
+</ion-card>

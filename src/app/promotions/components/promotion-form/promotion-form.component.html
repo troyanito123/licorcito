@@ -1,0 +1,84 @@
+<app-promotion-new-image [photoDB]="promotion?.image"></app-promotion-new-image>
+
+<div class="form">
+  <form [formGroup]="promotionForm" autocomplete="off" (ngSubmit)="save()">
+    <ion-item>
+      <ion-label color="primary" position="floating">Nombre</ion-label>
+      <ion-input
+        type="text"
+        formControlName="name"
+        placeholder="Nombre"
+      ></ion-input>
+      <span class="error_message" *ngIf="invalidField('name')">{{
+        invalidNameMsg
+      }}</span>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">Descripcion</ion-label>
+      <ion-input
+        type="text"
+        formControlName="description"
+        placeholder="Descripcion"
+      ></ion-input>
+      <span class="error_message" *ngIf="invalidField('description')">{{
+        invalidDescriptionMsg
+      }}</span>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="floating">Precio</ion-label>
+      <ion-input
+        type="number"
+        formControlName="price"
+        min="0"
+        max="9999"
+        placeholder="Precio"
+      ></ion-input>
+      <ion-label class="error_message" *ngIf="invalidField('price')">{{
+        invalidPriceMsg
+      }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Disponible</ion-label>
+      <ion-toggle formControlName="available"></ion-toggle>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button
+            *ngIf="!isLoading"
+            type="submit"
+            expand="block"
+            fill="solid"
+          >
+            Guardar
+          </ion-button>
+
+          <ion-button
+            *ngIf="isLoading"
+            type="button"
+            fill="solid"
+            expand="block"
+            disabled
+          >
+            <ion-spinner name="bubbles"></ion-spinner>
+            Guardando ...
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button
+            (click)="cancel()"
+            type="button"
+            fill="outline"
+            expand="block"
+          >
+            Cancelar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</div>

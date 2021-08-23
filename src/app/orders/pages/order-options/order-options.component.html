@@ -1,0 +1,27 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="orders" text=""></ion-back-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ng-container *ngIf="authService.isAdmin && order">
+          <h1 class="subtitle">Asignar dealer</h1>
+          <app-order-dealer [order]="order"></app-order-dealer>
+        </ng-container>
+
+        <ng-container
+          *ngIf="(authService.isAdmin || authService.isDealer) && order"
+        >
+          <h1 class="subtitle">Notificaciones</h1>
+          <app-order-notification
+            [userId]="order.userId"
+            [orderId]="order.id"
+          ></app-order-notification>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

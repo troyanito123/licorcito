@@ -1,0 +1,48 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="/home" text=""></ion-back-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <h2 class="subtitle">Tu carrito</h2>
+
+        <div class="total_container" *ngIf="products.length">
+          <p>Total:</p>
+          <p>
+            <span>{{total | number: "1.2"}} Bs.</span>
+          </p>
+        </div>
+
+        <ion-list lines="none">
+          <ion-item-sliding *ngFor="let product of products">
+            <ion-item>
+              <app-cart-product [product]="product"></app-cart-product>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option (click)="removeFromCart(product)">
+                <ion-icon
+                  name="trash-outline"
+                  size="large"
+                  color="danger"
+                ></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+
+        <div class="empty-cart" *ngIf="!products.length">
+          <ion-icon name="cart-outline"></ion-icon>
+          <p>Tu carrito esta vacio</p>
+        </div>
+
+        <ion-button expand="block" routerLink="/orders/new">
+          Continuar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

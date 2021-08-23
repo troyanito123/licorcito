@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button menu="first"></ion-menu-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button routerLink="./search">
+              <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end" routerLink="/cart">
+            <ion-icon slot="end" name="cart-outline"></ion-icon>
+            <ion-badge mode="md" *ngIf="cantInCart">
+              {{ cantInCart }}
+            </ion-badge>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <div *ngIf="promotions.length">
+          <h2 class="subtitle">Promociones</h2>
+          <ion-slides mode="md" pager="md" [options]="promotionsSlideOpts">
+            <ion-slide *ngFor="let promotion of promotions">
+              <app-promotion-item [promotion]="promotion"></app-promotion-item>
+            </ion-slide>
+          </ion-slides>
+        </div>
+
+        <div>
+          <h2 class="subtitle">Categorias</h2>
+          <ion-slides mode="md" [options]="categoriesSlideOpts">
+            <ion-slide
+              *ngFor="let category of categories"
+              routerLink="./category/{{category}}"
+            >
+              <app-category-item [category]="category"></app-category-item>
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <div>
+          <h2 class="subtitle">Nuevos productos</h2>
+          <app-item-list [products]="products"></app-item-list>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

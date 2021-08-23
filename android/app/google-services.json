@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "405383394698",
+    "firebase_url": "https://storeapp-9941c-default-rtdb.firebaseio.com",
+    "project_id": "storeapp-9941c",
+    "storage_bucket": "storeapp-9941c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405383394698:android:6ac5460d6f8f12b5f48473",
+        "android_client_info": {
+          "package_name": "umss.ptaang.licorcito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405383394698-f4je5u5cen8fsrescr2l5pn6g61kstnh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYNDnWQzKuEYRHHPl4zkgmt2sS6B7P3Q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405383394698-f4je5u5cen8fsrescr2l5pn6g61kstnh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

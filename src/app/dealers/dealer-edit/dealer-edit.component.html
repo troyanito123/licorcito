@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="dealers" text=""></ion-back-button>
+          </ion-buttons>
+          <ion-buttons slot="end"> </ion-buttons>
+        </ion-toolbar>
+        <h1 class="subtitle">Editar dealer</h1>
+        <ng-container *ngIf="dealer">
+          <app-dealer-form
+            [dealer]="dealer"
+            [dealerId]="dealerId"
+          ></app-dealer-form>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

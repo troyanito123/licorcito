@@ -1,0 +1,55 @@
+<ion-content class="ion-padding">
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <div class="page_contain">
+          <div class="header">
+            <ion-text>
+              <h1>Bienvenido.</h1>
+              <p>Comience iniciando sesion con <br />su cuenta.</p>
+            </ion-text>
+          </div>
+
+          <div class="form_container">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <ion-item>
+                <ion-icon slot="start" name="mail-outline"></ion-icon>
+                <ion-label position="floating">Correo</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item class="last_item">
+                <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input
+                  type="password"
+                  formControlName="password"
+                ></ion-input>
+              </ion-item>
+              <ion-button type="submit" expand="block" *ngIf="!isLoading">
+                Ingresa
+              </ion-button>
+              <ion-button
+                type="button"
+                expand="block"
+                *ngIf="isLoading"
+                disabled
+              >
+                Ingresando...
+              </ion-button>
+            </form>
+            <div class="buttons_container">
+              <ion-button fill="outline" expand="block" (click)="googleLogin()">
+                <img src="../../assets/google.png" />
+                <ion-label>Conectar con Google</ion-label>
+              </ion-button>
+              <p class="text_login_register">
+                ¿No tienes Cuenta?
+                <a routerLink="../register">Registrate ahora</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

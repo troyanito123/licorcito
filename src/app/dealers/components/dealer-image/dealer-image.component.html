@@ -1,0 +1,22 @@
+<div class="photo_container">
+  <ion-img src="assets/no-image.jpg" *ngIf="!photo && !initialValue"></ion-img>
+  <ion-img [src]="photo.webPath" *ngIf="photo"></ion-img>
+  <ion-img [src]="initialValue" *ngIf="initialValue"></ion-img>
+</div>
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="openCamera()" expand="block">
+        <ion-icon slot="start" name="camera-outline"></ion-icon>
+        Camara
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="openGallery()" expand="block" fill="outline">
+        <ion-icon slot="start" name="images-outline"></ion-icon>
+        Galeria
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

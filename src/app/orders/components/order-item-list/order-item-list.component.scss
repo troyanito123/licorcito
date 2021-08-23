@@ -1,0 +1,24 @@
+p {
+  color: black;
+}
+p:nth-child(1) {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+p:nth-child(2) {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+p:nth-child(3) {
+  font-size: 1rem;
+  color: #8c8c9c;
+}
+
+ion-badge {
+  --padding-bottom: 0.4rem;
+  --padding-end: 0.8rem;
+  --padding-start: 0.8rem;
+  --padding-top: 0.4rem;
+}

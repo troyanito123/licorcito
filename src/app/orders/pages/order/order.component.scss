@@ -1,0 +1,23 @@
+.description {
+  margin: 1rem;
+  p,
+  h2 {
+    margin: 0px;
+  }
+
+  h2 {
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  p {
+    background-color: #f3f3fb;
+    margin-top: 0.2rem;
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-transform: capitalize;
+  }
+}

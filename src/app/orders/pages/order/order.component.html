@@ -1,0 +1,93 @@
+<ion-content>
+  <ion-grid fixed *ngIf="order">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start" mode="ios">
+            <ion-back-button defaultHref="orders" text=""></ion-back-button>
+          </ion-buttons>
+
+          <ion-buttons slot="end" *ngIf="order">
+            <ion-button routerLink="../details/{{ order.id }}">
+              <ion-icon slot="icon-only" name="reader-outline"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="../chat/{{ order.id }}">
+              <ion-icon slot="icon-only" name="chatbubbles-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+
+          <ion-buttons
+            slot="end"
+            *ngIf="
+              order &&
+              isNewOrProgress &&
+              (authService.isAdmin || authService.isDealer)
+            "
+          >
+            <ion-button routerLink="../options/{{ order.id }}">
+              <ion-icon
+                slot="icon-only"
+                name="notifications-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+
+        <h1 class="subtitle">Detalle de la orden</h1>
+
+        <app-order-map [location]="order.location"></app-order-map>
+        <div class="description">
+          <h2>Numero de Orden:</h2>
+          <p>{{ orderId }}</p>
+
+          <h2>Descripcion del lugar</h2>
+          <p>{{ order.description }}</p>
+
+          <h2>Telefono de contacto</h2>
+          <p>{{ order.phone }}</p>
+
+          <ng-container *ngIf="order.street1">
+            <h2>Calle principal</h2>
+            <p>{{ order.street1 }}</p>
+          </ng-container>
+
+          <ng-container *ngIf="order.street2">
+            <h2>Colindante 1</h2>
+            <p>{{ order.street2 }}</p>
+          </ng-container>
+
+          <ng-container *ngIf="order.street3">
+            <h2>Colindante 2</h2>
+            <p>{{ order.street3 }}</p>
+          </ng-container>
+        </div>
+
+        <div class="danger_custom">
+          <ion-button
+            (click)="setCompleted()"
+            *ngIf="
+              (authService.isAdmin || authService.isDealer) &&
+              isNewOrProgress &&
+              !isLoading
+            "
+            expand="block"
+          >
+            <ion-icon slot="start" name="trash-outline"></ion-icon>
+            Finalizar Pedido
+          </ion-button>
+        </div>
+
+        <ion-button
+          disabled
+          color="dark"
+          *ngIf="isLoading"
+          shape="round"
+          expand="block"
+        >
+          <ion-spinner name="bubbles"></ion-spinner>
+          guardando...
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

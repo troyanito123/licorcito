@@ -1,0 +1,63 @@
+<div class="address_form_container">
+  <form [formGroup]="detailForm" (ngSubmit)="sendOrder()" autocomplete="on">
+    <ion-item>
+      <ion-label position="floating"> Descripción (*) </ion-label>
+      <ion-textarea
+        type="text"
+        formControlName="description"
+        placeholder="Puerta color negra, acera este, alado de ..."
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Teléfono de contacto (*) </ion-label>
+      <ion-input
+        type="tef"
+        formControlName="phone"
+        placeholder="60000000"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Calle Principal</ion-label>
+      <ion-input
+        type="text"
+        formControlName="street1"
+        placeholder="Calle principal"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Calle colindante 1 </ion-label>
+      <ion-input
+        type="text"
+        formControlName="street2"
+        placeholder="Calle colindante 1"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Calle colindante 2 </ion-label>
+      <ion-input
+        type="text"
+        formControlName="street3"
+        placeholder="Calle colindante 2"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button *ngIf="!isLoading" type="submit" fill="solid" expand="block">
+      Realizar Pedido
+    </ion-button>
+
+    <ion-button
+      *ngIf="isLoading"
+      type="button"
+      expand="block"
+      fill="solid"
+      disabled
+    >
+      <ion-spinner name="bubbles"></ion-spinner>
+      Enviando ...
+    </ion-button>
+  </form>
+</div>

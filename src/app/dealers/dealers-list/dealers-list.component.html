@@ -1,0 +1,69 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-sm="12" size-md="10" size-lg="8" size-xl="8">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button menu="first"></ion-menu-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button routerLink="../new-dealer">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <h1 class="subtitle">Lista de dealers</h1>
+
+        <ion-searchbar
+          placeholder="Buscar..."
+          showCancelButton="never"
+          [(ngModel)]="search"
+        ></ion-searchbar>
+        <ion-list>
+          <ion-grid>
+            <ion-row>
+              <ion-col
+                size="12"
+                size-md="6"
+                *ngFor="let dealer of dealers | filter: search"
+              >
+                <ion-item-sliding>
+                  <ion-item routerLink="../{{ dealer.id }}">
+                    <!-- <ion-avatar slot="start" *ngIf="dealer.urlImage">
+                      <img [src]="dealer.urlImage" />
+                    </ion-avatar> -->
+                    <div class="img_avatar">
+                      <img [src]="dealer.urlImage" />
+                    </div>
+                    <ion-label class="ion-text-wrap">
+                      <p>Delivery: {{ dealer.name }}</p>
+                      <p>Empresa: {{ dealer.company }}</p>
+                      <p>Email: {{ dealer.email }}</p>
+                    </ion-label>
+                  </ion-item>
+                  <ion-item-options side="end">
+                    <ion-item-option routerLink="../edit/{{ dealer.id }}">
+                      <ion-icon
+                        slot="icon-only"
+                        name="create-outline"
+                      ></ion-icon>
+                    </ion-item-option>
+                    <ion-item-option
+                      color="danger"
+                      (click)="remove(dealer.id, dealer.email, dealer.urlImage)"
+                    >
+                      <ion-icon
+                        slot="icon-only"
+                        name="trash-outline"
+                      ></ion-icon>
+                    </ion-item-option>
+                  </ion-item-options>
+                </ion-item-sliding>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

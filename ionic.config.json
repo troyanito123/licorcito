@@ -1,0 +1,7 @@
+{
+  "name": "Licorcito",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,30 @@
+<div class="image_container" *ngIf="!imageList.length && path !== 'edit'">
+  <ion-img src="assets/no-image.jpg"></ion-img>
+</div>
+<ion-slides mode="md" pager="md" scrollbar="md" [options]="slidesOpt">
+  <ion-slide *ngFor="let item of imageList">
+    <ion-button (click)="removeImage(item.id)" class="delete_image_button">
+      <ion-icon slot="icon-only" name="remove"></ion-icon>
+    </ion-button>
+    <div class="image_container">
+      <ion-img [src]="item.image.webPath"></ion-img>
+    </div>
+  </ion-slide>
+</ion-slides>
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="takePicture()" expand="block">
+        <ion-icon slot="start" name="camera"></ion-icon>
+        Camara
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="chooseFromGallery()" fill="outline" expand="block">
+        <ion-icon slot="start" name="image"></ion-icon>
+        <ion-label>Galeria</ion-label>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

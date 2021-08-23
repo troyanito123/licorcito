@@ -1,0 +1,10 @@
+<ion-slides mode="md" pager="md" scrollbar="md" *ngIf="!isNew">
+  <ion-slide *ngFor="let img of images">
+    <ion-button (click)="removeImage(img)" class="delete_image_button">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+    <div class="image_container">
+      <ion-img [src]="img.url"></ion-img>
+    </div>
+  </ion-slide>
+</ion-slides>

@@ -1,0 +1,144 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "~leaflet/dist/leaflet.css";
+
+.error_message {
+  color: #eb445a;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.subtitle {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  margin-left: 1rem;
+}
+
+.delete_image_button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  --background: white;
+  height: 3rem;
+  width: 3rem;
+  --border-radius: 50%;
+  --padding-bottom: 0px;
+  --padding-end: 0px;
+  --padding-start: 0px;
+  --padding-top: 0px;
+  ion-icon {
+    color: #2c344b;
+    font-size: 2.5rem;
+  }
+}
+
+.image_container {
+  height: 300px;
+  ion-img {
+    height: 280px;
+  }
+}
+
+ion-button {
+  --border-radius: 9px;
+  --box-shadow: none;
+  text-transform: initial;
+  font-size: 1rem;
+  --background-activated: #8c8c9c;
+}
+
+ion-toggle {
+  --background-checked: #2c344b;
+  --handle-background: #f3f3fb;
+  --handle-background-checked: #f3f3fb;
+}
+
+ion-toolbar {
+  ion-back-button {
+    --color: #2c344b;
+  }
+  ion-icon {
+    color: #2c344b;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  ion-menu-button {
+    --color: #2c344b;
+  }
+}
+
+.item_title {
+  color: black;
+  font-size: 1.1rem;
+}
+
+.item_description {
+  color: black;
+  font-size: 1.1rem;
+}
+
+.item_price {
+  color: #2c344b;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.item_background {
+  background-color: #f3f3fb;
+}
+
+.item_title--size-2 {
+  font-size: 2rem;
+}
+
+ion-badge {
+  --background: #2c344b;
+}
+
+.img_avatar {
+  margin-right: 0.5rem;
+  height: 40px;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  ion-img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+  }
+  img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+  }
+}
